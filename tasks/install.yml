@@ -1,15 +1,15 @@
 ---
 - name: Postgresql packages
-    yum:
-      name: "{{ item }}"
-      sudo: True
-      state: installed
-      with_items:
-        - postgresql94-server
-- name: Install pip stuff for Ansible+Postgresql        
-    pip:
-      sudo: True
-      name: "{{ item }}"
-      state: installed
-      with_items:
-        - psycopg2
+  yum:
+    name: "{{ item }}"
+    sudo: True
+    state: installed
+    with_items:
+      - postgresql94-server
+- name: Install pip stuff for Ansible+Postgresql
+  pip:
+    sudo: True
+    name: "{{ item }}"
+    state: installed
+    with_items:
+      - psycopg2
