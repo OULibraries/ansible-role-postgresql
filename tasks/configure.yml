@@ -1,6 +1,6 @@
 ---
 - name: Initiate database
-  command: /usr/pgsql-9.4/bin/postgresql94-setup
+  command: /usr/pgsql-9.4/bin/postgresql94-setup initdb
   args:
     creates: /var/lib/pgsql/data/postgresql.conf
 
