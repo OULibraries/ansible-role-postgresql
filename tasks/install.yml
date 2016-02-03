@@ -2,6 +2,8 @@
 
 - name: Disable default postgres packages
   lineinfile:
+    line: 'exclude=postgresql*'
+    state: present 
     dest: "/etc/yum.repos.d/CentOS-Base.repo" 
     insertafter: "{{ item }}"
   with_items:
