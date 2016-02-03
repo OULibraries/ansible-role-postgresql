@@ -1,15 +1,22 @@
 ---
-- name: Postgresql packages
+
+- name: Disable default postgres packages
+  lineinfile:
+    dest: "/etc/yum.repos.d/CentOS-Base.repo" 
+    regex: "{{ item }}"
+  with_items:
+    - '^\[base\]'
+    - '^\[updates\]'
+
+- name: Install PGDG repository config RPM
+  yum:
+    name: "http://yum.postgresql.org/9.4/redhat/rhel-6-x86_64/pgdg-centos94-9.4-1.noarch.rpm"
+    state: installed
+
+- name: Install Postgresql server package
   yum:
     name: "{{ item }}"
     sudo: True
     state: installed
-    with_items:
+  with_items:
       - postgresql94-server
-- name: Install pip stuff for Ansible+Postgresql
-  pip:
-    sudo: True
-    name: "{{ item }}"
-    state: installed
-    with_items:
-      - psycopg2
