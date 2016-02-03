@@ -18,7 +18,6 @@
 - name: Install Postgresql server package
   yum:
     name: "{{ item }}"
-    sudo: True
     state: installed
   with_items:
       - postgresql94-server
