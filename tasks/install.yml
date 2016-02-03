@@ -3,7 +3,7 @@
 - name: Disable default postgres packages
   copy:
     src: exclude-postgres.repo
-    dest: /etc/yum.repos.d/exclude-postgres.repo
+    dest: /etc/yum.repos.d/exclude-default-postgres.repo
     owner: root
     group: root
     mode: 0644
