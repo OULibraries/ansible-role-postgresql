@@ -7,7 +7,7 @@
 
 - name: Start PostgreSQL and enable at boot
   service:
-    name: postgresql
+    name: postgresql-9.4
     enabled: yes
     state: started
 
