@@ -1,14 +1,18 @@
 ---
 
 - name: Disable default postgres packages
-  lineinfile:
-    line: 'exclude=postgresql*'
-    state: present 
+  blockinfile:
     dest: "/etc/yum.repos.d/CentOS-Base.repo" 
-    insertafter: "{{ item }}"
-  with_items:
-    - '^\[base\]'
-    - '^\[updates\]'
+    block: |
+      [base]
+      exclude=postgresql*
+
+- name: Disable default postgres packages
+  blockinfile:
+    dest: "/etc/yum.repos.d/CentOS-Base.repo" 
+    block: |
+      [base]
+      exclude=postgresql*
 
 - name: Install PGDG repository config RPM
   yum:
