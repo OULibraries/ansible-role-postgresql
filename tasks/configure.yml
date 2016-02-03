@@ -1,0 +1,15 @@
+---
+- name: Initiate database
+  command: /usr/pgsql-9.4/bin/postgresql94-setup
+  args:
+    creates: /var/lib/pgsql/data/postgresql.conf
+
+
+- name: Start PostgreSQL and enable at boot
+  service:
+    name: postgresql
+    enabled: yes
+    state: started
+
+
+
