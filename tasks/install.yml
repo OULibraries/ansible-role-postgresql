@@ -3,7 +3,7 @@
 - name: Disable default postgres packages
   lineinfile:
     dest: "/etc/yum.repos.d/CentOS-Base.repo" 
-    regex: "{{ item }}"
+    insertafter: "{{ item }}"
   with_items:
     - '^\[base\]'
     - '^\[updates\]'
