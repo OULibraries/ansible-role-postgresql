@@ -19,3 +19,4 @@
     state: installed
   with_items:
       - postgresql94-server
+      - postgresql94-contrib
