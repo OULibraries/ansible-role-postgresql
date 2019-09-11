@@ -1,18 +1,12 @@
 ---
 
- #- name: Disable default postgres packages
- # copy:
- #   src: exclude-default-postgres.repo
- #   dest: /etc/yum.repos.d/exclude-default-postgres.repo
- #   owner: root
- #   group: root
- #   mode: 0644
-
-- name: Disable default postgres packages
-  yum:
-    name: "postgresql" 
-    state: absent
-
+ - name: Disable default postgres packages
+  copy:
+    src: exclude-default-postgres.repo
+    dest: /etc/yum.repos.d/exclude-default-postgres.repo
+    owner: root
+    group: root
+    mode: 0644
 
 - name: Install PGDG repository config RPM
   yum:
@@ -24,5 +18,5 @@
     name: "{{ item }}"
     state: installed
   with_items:
-      - postgresql94-server
-      - postgresql94-contrib
+      - postgresql10-server
+      - postgresql10-contrib
