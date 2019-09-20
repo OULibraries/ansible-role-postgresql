@@ -1,13 +1,13 @@
 ---
 - name: Initiate database
-  command: /usr/pgsql-10/bin/postgresql10-setup initdb
+  command: /usr/pgsql-11/bin/postgresql11-setup initdb
   args:
-    creates: /var/lib/pgsql/10/data/postgresql.conf
+    creates: /var/lib/pgsql/11/data/postgresql.conf
 
 - name: Set up postgresl connection permissions
   copy:
     src: pg_hba.conf
-    dest: /var/lib/pgsql/10/data/pg_hba.conf
+    dest: /var/lib/pgsql/11/data/pg_hba.conf
     owner: postgres
     group: postgres
     mode: 0700
@@ -16,7 +16,7 @@
 
 - name: Start PostgreSQL and enable at boot
   service:
-    name: postgresql-10
+    name: postgresql-11
     enabled: yes
     state: started
 
