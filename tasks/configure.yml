@@ -1,6 +1,6 @@
 ---
 - name: Initiate database
-  command: /usr/pgsql-11/bin/postgresql11-setup initdb
+  command: /usr/pgsql-11/bin/postgresql-11-setup initdb
   args:
     creates: /var/lib/pgsql/11/data/postgresql.conf
 
