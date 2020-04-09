@@ -1,6 +1,6 @@
 ---
 
-- name: Verify that we are not using default PostgreSQL packages 
+- name: Verify that we are not using default PostgreSQL packages
   yum:
     name: "postgresql"
     state: absent
